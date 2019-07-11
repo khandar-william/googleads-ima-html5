@@ -51,6 +51,11 @@ var Application = function() {
 
   this.videoEndedCallback_ = this.bind_(this, this.onContentEnded_);
   this.setVideoEndedCallbackEnabled(true);
+
+  const skippableTag = document.getElementById('sampleAdTag2');
+  skippableTag.addEventListener('click', function () {
+    document.getElementById('tagText').value = 'https://pubads.g.doubleclick.net/gampad/ads?iu=%2F21743724729%2FNarasiVideo%2FPreroll&description_url=http%3A%2F%2Fnarasi.tv&env=vp&correlator=1129378091841478&tfcd=0&npa=0&gdfp_req=1&output=xml_vast4&sz=300x250%7C400x300%7C640x480&unviewed_position_start=1&cookie=ID%3D58ac97138200d3d1%3AT%3D1546483758%3AS%3DALNI_Ma64nhj-GP-tDYVbxqWxfdU-h1OQQ&vis=1&frm=2&osd=2&sdr=1&is_amp=0&hl=en&u_so=l&mpt=brightcove%2Fplayer-ht&mpv=3.2.6&adsid=NT&pucrd=CgwIARAAGAAgASgBOAF4Aw&jar=2019-07-11-08&sdkv=h.3.316.0&adk=3278548018&dlt=1562835071059&idt=2455&dt=1562835074328&vpa=click&vpmute=0&eid=420706141&sdki=44d&scor=1513785443058373&afvsz=200x200%2C250x250%2C300x250%2C336x280%2C450x50%2C468x60%2C480x70%2C728x90&url=https%3A%2F%2Fwww.narasi.tv&ged=ve4_td3_tt1_pd3_la3000_er0.-9999.753.1324_vi0.0.753.1324_vp12_eb22379';
+  });
 };
 
 Application.prototype.SAMPLE_AD_TAG_ = 'https://pubads.g.doubleclick.net/' +
