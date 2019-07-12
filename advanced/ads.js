@@ -80,6 +80,7 @@ Ads.prototype.onAdsManagerLoaded_ = function(adsManagerLoadedEvent) {
   this.application_.log('Ads loaded.');
   var adsRenderingSettings = new google.ima.AdsRenderingSettings();
   adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
+  // adsRenderingSettings.disableCustomPlaybackForIOS10Plus = true;
   this.adsManager_ = adsManagerLoadedEvent.getAdsManager(
       this.videoPlayer_.contentPlayer, adsRenderingSettings);
   this.startAdsManager_(this.adsManager_);
@@ -169,8 +170,10 @@ Ads.prototype.onAdEvent_ = function(adEvent) {
 
 Ads.prototype.onAdError_ = function(adErrorEvent) {
   this.application_.log('Ad error: ' + adErrorEvent.getError().toString());
+
   if (this.adsManager_) {
     this.adsManager_.destroy();
   }
+
   this.application_.resumeAfterAd();
 };

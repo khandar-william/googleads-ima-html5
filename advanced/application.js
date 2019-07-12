@@ -78,9 +78,14 @@ Application.prototype.log = function(message) {
 };
 
 Application.prototype.resumeAfterAd = function() {
-  this.videoPlayer_.play();
-  this.adsActive_ = false;
-  this.updateChrome_();
+  setTimeout(() => {
+    const vid = this.videoPlayer_.contentPlayer;
+    vid.setAttribute('src', vid.currentSrc);
+
+    this.videoPlayer_.play();
+    this.adsActive_ = false;
+    this.updateChrome_();
+  }, 0);
 };
 
 Application.prototype.pauseForAd = function() {
