@@ -6,5 +6,6 @@ window.addEventListener('load', () => {
     myPlayer.ima3.settings.serverUrl = '';
     myPlayer.ima3.adsLoader.getSettings().setAutoPlayAdBreaks(false);
     myPlayer.ima3.adsManager.discardAdBreak();
+    myPlayer.ima3.adsManager.stop();
   });
 });
