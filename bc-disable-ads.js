@@ -2,8 +2,9 @@ window.addEventListener('load', () => {
   const players = videojs.getPlayers();
   const myPlayer = players[Object.keys(players)[0]];
 
-  myPlayer.ready(() => {
-    myPlayer.ima3.adsManager.discardAdBreak();
+  myPlayer.one('loadeddata', () => {
     myPlayer.ima3.settings.serverUrl = '';
+    myPlayer.ima3.adsLoader.getSettings().setAutoPlayAdBreaks(false);
+    myPlayer.ima3.adsManager.discardAdBreak();
   });
 });
