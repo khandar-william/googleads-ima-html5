@@ -133,12 +133,12 @@ Ads.prototype.startAdsManager_ = function(adsManager) {
     initWidth = this.videoPlayer_.width;
     initHeight = this.videoPlayer_.height;
   }
-  // adsManager.init(
-  //   initWidth,
-  //   initHeight,
-  //   google.ima.ViewMode.NORMAL);
+  adsManager.init(
+    initWidth,
+    initHeight,
+    google.ima.ViewMode.NORMAL);
 
-  // adsManager.start();
+  adsManager.start();
 };
 
 Ads.prototype.onContentPauseRequested_ = function() {
