@@ -56,6 +56,8 @@ var Application = function() {
   skippableTag.addEventListener('click', function () {
     document.getElementById('tagText').value = 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=';
   });
+
+  this.log('Your User Agent = ' + window.navigator.userAgent);
 };
 
 Application.prototype.SAMPLE_AD_TAG_ = 'https://pubads.g.doubleclick.net/' +
@@ -78,14 +80,14 @@ Application.prototype.log = function(message) {
 };
 
 Application.prototype.resumeAfterAd = function() {
-  setTimeout(() => {
-    const vid = this.videoPlayer_.contentPlayer;
-    vid.setAttribute('src', vid.currentSrc);
+  // setTimeout(() => {
+  //   const vid = this.videoPlayer_.contentPlayer;
+  //   vid.setAttribute('src', vid.currentSrc);
 
     this.videoPlayer_.play();
     this.adsActive_ = false;
     this.updateChrome_();
-  }, 0);
+  // }, 0);
 };
 
 Application.prototype.pauseForAd = function() {
@@ -117,9 +119,15 @@ Application.prototype.onClick_ = function() {
     } else {
       this.adTagUrl_ = this.adTagBox_.value;
     }
+
+    // google.ima.settings.setDisableCustomPlaybackForIOS10Plus(true);
+    // google.ima.settings.serverUrl = '';
+
+
     // The user clicked/tapped - inform the ads controller that this code
     // is being run in a user action thread.
     this.ads_.initialUserAction();
+
     // At the same time, initialize the content player as well.
     // When content is loaded, we'll issue the ad request to prevent it
     // from interfering with the initialization. See

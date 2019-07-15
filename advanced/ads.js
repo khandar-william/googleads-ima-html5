@@ -80,6 +80,7 @@ Ads.prototype.onAdsManagerLoaded_ = function(adsManagerLoadedEvent) {
   this.application_.log('Ads loaded.');
   var adsRenderingSettings = new google.ima.AdsRenderingSettings();
   adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
+
   // adsRenderingSettings.disableCustomPlaybackForIOS10Plus = true;
   this.adsManager_ = adsManagerLoadedEvent.getAdsManager(
       this.videoPlayer_.contentPlayer, adsRenderingSettings);
@@ -132,12 +133,12 @@ Ads.prototype.startAdsManager_ = function(adsManager) {
     initWidth = this.videoPlayer_.width;
     initHeight = this.videoPlayer_.height;
   }
-  adsManager.init(
-    initWidth,
-    initHeight,
-    google.ima.ViewMode.NORMAL);
+  // adsManager.init(
+  //   initWidth,
+  //   initHeight,
+  //   google.ima.ViewMode.NORMAL);
 
-  adsManager.start();
+  // adsManager.start();
 };
 
 Ads.prototype.onContentPauseRequested_ = function() {
