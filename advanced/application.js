@@ -58,6 +58,8 @@ var Application = function() {
   });
 
   this.log('Your User Agent = ' + window.navigator.userAgent);
+  var parser = new UAParser();
+  this.log(parser.getResult());
 };
 
 Application.prototype.SAMPLE_AD_TAG_ = 'https://pubads.g.doubleclick.net/' +
